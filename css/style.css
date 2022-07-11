@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=poppins);
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #f5f8fa;
+    justify-content: center;
+    align-items: center;
+
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .container{
+
+        width :400px;
+        margin: 0 auto;
+       
+        background-color: #fff; 
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        max-height: 600px;
+        overflow: hidden;
+
+padding: 0;
+
+    }
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem ;
+     
+    }
+    .header input{
+        padding: 10px;
+border:none;
+        border-radius: 5px;
+        background-color: white;
+    }
+    .header button{
+        padding: 10px;
+      border:none;
+      color:#aaa;
+margin-left: 10px;
+
+    }
+    .fav_container{
+             justify-content: center;
+        align-items: center;
+      width:100%;
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+         }
+    .fav_males{
+        background-color: #aaa;
+display: flex;
+list-style-type: none;
+padding :0;
+    }
+    .fav_males li {
+        justify-content: center;
+        align-items: center;
+        border-style: none;
+        text-align: center;
+    }
+    .fav_males img{
+border-radius: 90%;
+width: 70px;
+height: 70px;
+border-width: none;
+margin-top: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    }
