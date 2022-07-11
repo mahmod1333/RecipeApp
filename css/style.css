@@ -2,8 +2,11 @@
 
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    padding:0px;
+    margin:0px;
 }
+
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -13,68 +16,158 @@ body {
     justify-content: center;
     align-items: center;
 
-    }
-    img {
-        width: 100%;
-        height: auto;
-    }
-    .container{
+}
 
-        width :400px;
-        margin: 0 auto;
-       
-        background-color: #fff; 
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        max-height: 600px;
-        overflow: hidden;
+img {
+    width: 100%;
+    height: auto;
+}
 
-padding: 0;
+.container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-height: 585px;
+overflow: hidden;
+    padding: 0;
 
-    }
-    .header{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem ;
-     
-    }
-    .header input{
-        padding: 10px;
-border:none;
-        border-radius: 5px;
-        background-color: white;
-    }
-    .header button{
-        padding: 10px;
-      border:none;
-      color:#aaa;
-margin-left: 10px;
+}
 
-    }
-    .fav_container{
-             justify-content: center;
-        align-items: center;
-      width:100%;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
-         }
-    .fav_males{
-        background-color: #aaa;
-display: flex;
-list-style-type: none;
-padding :0;
-    }
-    .fav_males li {
-        justify-content: center;
-        align-items: center;
-        border-style: none;
-        text-align: center;
-    }
-    .fav_males img{
-border-radius: 90%;
-width: 70px;
-height: 70px;
-border-width: none;
-margin-top: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-    }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+height: 50px;
+    padding: 0 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+.header i{
+    font-size: 30px;
+    color: #212529;
+}
+.header button {
+    padding: 10px;
+    border: none;
+    color: #aaa;
+    margin-left: 10px;
+
+}
+
+.fav_container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.fav_males {
+    background-color: rgba(247, 220, 253, 0.774);
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.fav_males li {
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    text-align: center;
+}
+
+.fav_males img {
+    border-radius: 90%;
+    width: 70px;
+    height: 70px;
+    border-width: none;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+.notification{
+    background: rgb(61,182,232);
+background: linear-gradient(90deg, rgba(61,182,232,1) 8%, rgba(173,124,247,1) 94%);
+margin: 10px;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+height: 150px;
+}
+.notification #header_notification{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+
+}
+.notification #header_notification button{
+   color: #fff;
+    border: 0px;
+    margin-left: 10px;
+    background-color: rgba(245, 245, 220, 0);
+}
+.notification #body_notification{
+ 
+    padding: 0 20px;
+    height: 150px;
+}
+.notification #body_notification button{
+    background-color: rgba(255, 255, 255, 0.438);
+    color: #fff;
+border-width:0px;
+border: solid 1px #fff;
+   
+    border-color: #fff;
+    border-radius:20px;
+    padding: 10px;
+    margin: 10px 0px   0px 70px;
+    align-self:center ;
+    justify-self:center;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+   
+}
+.recipe_item{
+   position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    justify-self: center;
+    align-self: center;
+margin: 10px;
+    border-radius:5px ;
+}
+.recipe_item img{
+    width: 100%;
+    height: 200px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    padding-bottom: 0px;
+}
+.recipe_item h3{
+    font-size: 20px;
+  margin :10px 0px;
+  position:absolute;
+  background-color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+   
+}
+.recipe_item_info {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    justify-content: space-between;
+    display: flex;
+
+}
+.recipe_item_info i{
+   color: rgba(197, 193, 193, 0.925);
+font-size: 22px;
+padding: 10px;
+}
