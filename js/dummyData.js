@@ -1,7 +1,5 @@
 var recipes = [
     {
-        id: 1,
-          star: true,
         "name": "Crock Pot Roast",
         "ingredients": [
             {
@@ -46,8 +44,6 @@ var recipes = [
         "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
     },
     {
-        id:2,
-        star: true,
         "name": "Roasted Asparagus",
         "ingredients": [
             {
@@ -94,8 +90,6 @@ var recipes = [
         "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847"
     },
     {
-        id:3,
-        star: true,
         "name": "Curried Lentils and Rice",
         "ingredients": [
             {
@@ -141,8 +135,6 @@ var recipes = [
         "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
     },
     {
-        id:4,
-        star: true,
         "name": "Big Night Pizza",
         "ingredients": [
             {
@@ -207,9 +199,6 @@ var recipes = [
         "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg"
     },
     {
-
-        id:5,
-        star: false,
         "name": "Cranberry and Apple Stuffed Acorn Squash Recipe",
         "ingredients": [
             {
@@ -267,8 +256,6 @@ var recipes = [
         "originalURL": ""
     },
     {
-        id:6,
-        star: false,
         "name": "Mic's Yorkshire Puds",
         "ingredients": [
             {
@@ -318,8 +305,6 @@ var recipes = [
         "originalURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg"
     },
     {
-        id:7,
-        star: false,
         "name": "Old-Fashioned Oatmeal Cookies",
         "ingredients": [
             {
@@ -411,9 +396,6 @@ var recipes = [
         "originalURL": "#"
     },
     {
-
-        id:8,
-        star: false,
         "name": "Blueberry Oatmeal Squares",
         "ingredients": [
             {
@@ -491,8 +473,6 @@ var recipes = [
         "originalURL": "http://www.canadianliving.com/food/blueberry_oatmeal_squares.php"
     },
     {
-        id:9,
-        star: false,
         "name": "Curried chicken salad",
         "ingredients": [
             {
@@ -581,44 +561,4 @@ var recipes = [
         "imageURL": "http://www.chatelaine.com/wp-content/uploads/2013/05/Curried-chicken-salad.jpg",
         "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/"
     }
-];
-function LoadAFavMalse(params) {
-    console.log(params);
-    for (var i = 0; i < params.length; i++) {
-        var item = params[i];
-        var star = item.star;
-        var id = item.id;
-        var name = item.name;
-        var imageURL = item.imageURL;
-        var originalURL = item.originalURL;
-        var ingredients = item.ingredients;
-        var steps = item.steps;
-        var timers = item.timers;  
-        console.log(item);
-
-       document.getElementById("rec_male").innerHTML  = `<h3>Recipe Name</h3>
-       <img 
-src="${imageURL}"
-        alt="">
-       <div class="recipe_item_info">
-          
-           <h4>${name}</h4>
-           <i class="fa fa-heart"></i>
-       </div>
-`;
- star ? document.getElementsByClassName("fav_males")[0].innerHTML +=`
-<li><img src="${imageURL}" alt="">
-    <span>${name}</span>
-</li>
-
-`
-   :null
-}
-}
-LoadAFavMalse(recipes);
-document.getElementById("cancel").addEventListener('click', ()=>{
-    document.getElementsByClassName('notification')[0].remove();
-})
-
-
-
+]
