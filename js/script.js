@@ -1,7 +1,7 @@
 var recipes = [
     {
         id: 1,
-          star: true,
+        star: true,
         "name": "Crock Pot Roast",
         "ingredients": [
             {
@@ -46,7 +46,7 @@ var recipes = [
         "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
     },
     {
-        id:2,
+        id: 2,
         star: true,
         "name": "Roasted Asparagus",
         "ingredients": [
@@ -94,7 +94,7 @@ var recipes = [
         "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847"
     },
     {
-        id:3,
+        id: 3,
         star: true,
         "name": "Curried Lentils and Rice",
         "ingredients": [
@@ -138,10 +138,10 @@ var recipes = [
             20,
             0
         ],
-        "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
+        "imageURL": "https://media.istockphoto.com/photos/curried-red-lentil-tomato-and-coconut-soup-delicious-vegetarian-food-picture-id1038979532?k=20&m=1038979532&s=612x612&w=0&h=M3EA_q-9dAztJ-zOaOzLgLqiKYvaJIH4egQNffy5D3o="
     },
     {
-        id:4,
+        id: 4,
         star: true,
         "name": "Big Night Pizza",
         "ingredients": [
@@ -208,7 +208,7 @@ var recipes = [
     },
     {
 
-        id:5,
+        id: 5,
         star: false,
         "name": "Cranberry and Apple Stuffed Acorn Squash Recipe",
         "ingredients": [
@@ -267,7 +267,7 @@ var recipes = [
         "originalURL": ""
     },
     {
-        id:6,
+        id: 6,
         star: false,
         "name": "Mic's Yorkshire Puds",
         "ingredients": [
@@ -318,7 +318,7 @@ var recipes = [
         "originalURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg"
     },
     {
-        id:7,
+        id: 7,
         star: false,
         "name": "Old-Fashioned Oatmeal Cookies",
         "ingredients": [
@@ -412,7 +412,7 @@ var recipes = [
     },
     {
 
-        id:8,
+        id: 8,
         star: false,
         "name": "Blueberry Oatmeal Squares",
         "ingredients": [
@@ -487,11 +487,11 @@ var recipes = [
             0,
             0
         ],
-        "imageURL": "http://www.canadianliving.com/img/photos/biz/blueberry-oatmeal-squares5801359401371.jpg",
+        "imageURL": "https://media.istockphoto.com/photos/superfood-breakfast-bars-above-view-on-marble-background-picture-id831716504?k=20&m=831716504&s=612x612&w=0&h=r6wRbzFFegfhhMMvzMtxjtuwxPeSSbPOk3XNxcPXa1Y=",
         "originalURL": "http://www.canadianliving.com/food/blueberry_oatmeal_squares.php"
     },
     {
-        id:9,
+        id: 9,
         star: false,
         "name": "Curried chicken salad",
         "ingredients": [
@@ -582,8 +582,18 @@ var recipes = [
         "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/"
     }
 ];
+
+function random_item(items) {
+
+    return items[Math.floor(Math.random() * items.length)];
+
+}
+var random_items = [random_item(recipes)];
+
+
 function LoadAFavMalse(params) {
-    console.log(params);
+
+
     for (var i = 0; i < params.length; i++) {
         var item = params[i];
         var star = item.star;
@@ -593,32 +603,66 @@ function LoadAFavMalse(params) {
         var originalURL = item.originalURL;
         var ingredients = item.ingredients;
         var steps = item.steps;
-        var timers = item.timers;  
-        console.log(item);
+        var timers = item.timers;
 
-       document.getElementById("rec_male").innerHTML  = `<h3>Recipe Name</h3>
+
+        document.getElementById("rec_male").innerHTML = `<h3>Recipe Name</h3>
        <img 
-src="${imageURL}"
+src="${random_items[0].imageURL}"
         alt="">
        <div class="recipe_item_info">
           
-           <h4>${name}</h4>
-           <i class="fa fa-heart"></i>
+           <h4>${random_items[0].name}</h4>
+           <i class="fa fa-heart" id="heart-${random_items[0].id}" onClick="addToFav(this.id)"></i>
        </div>
 `;
- star ? document.getElementsByClassName("fav_males")[0].innerHTML +=`
-<li><img src="${imageURL}" alt="">
+        if (star) {
+
+            document.getElementsByClassName("fav_males")[0].innerHTML += `
+<li  id="${id}">
+<button id="delete" onClick="del(this.parentElement.id)"  >x</button>
+<img src="${imageURL}" alt="">
     <span>${name}</span>
 </li>
 
-`
-   :null
-}
+`;
+
+        }
+
+
+
+    }
 }
 LoadAFavMalse(recipes);
-document.getElementById("cancel").addEventListener('click', ()=>{
+document.getElementById("cancel").addEventListener('click', () => {
     document.getElementsByClassName('notification')[0].remove();
-})
+});
+function del(id) {
+    var item = recipes.find(item => item.id == id);
+
+    item.star = false;
+    event.target.parentElement.remove();
+
+
+}
+function addToFav(id) {
+    document.getElementById("rec_male").innerHTML = '';
+    document.getElementsByClassName("fav_males")[0].innerHTML = '';
+    var id = id.split("-")[1];
+    var item = recipes.find(x => x.id == id);
+    item.star = true;
+
+
+
+    LoadAFavMalse(recipes);
+}
+
+
+
+
+
+
+
 
 
 
