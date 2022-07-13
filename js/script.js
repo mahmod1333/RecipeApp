@@ -606,23 +606,31 @@ function LoadAFavMalse(params) {
         var timers = item.timers;
 
 
-        document.getElementById("rec_male").innerHTML = `<h3>Recipe Name</h3>
+        document.getElementById("rec_male").innerHTML = `
+        <a href="#popup1" id="${random_items[0].id}" onClick="OpenDiscrib(this.id)">
+        <h3>Recipe Name</h3>
        <img 
 src="${random_items[0].imageURL}"
         alt="">
        <div class="recipe_item_info">
           
            <h4>${random_items[0].name}</h4>
-           <i class="fa fa-heart" id="heart-${random_items[0].id}" onClick="addToFav(this.id)"></i>
+           </a>
+           <i ${random_items[0].star === true ? 'style= "color:rgba(252, 66, 66, 0.925)"' :null} class="fa fa-heart" id="${random_items[0].id}"  onClick="addToFav(this.id)"></i>
        </div>
+ 
 `;
+
         if (star) {
 
             document.getElementsByClassName("fav_males")[0].innerHTML += `
+           
 <li  id="${id}">
-<button id="delete" onClick="del(this.parentElement.id)"  >x</button>
+<button id="delete" onClick="del(this.parentElement.id) "   >x</button>
+<a href="#popup1" id="${id}" onClick="OpenDiscrib(this.id)">
 <img src="${imageURL}" alt="">
     <span>${name}</span>
+    </a>
 </li>
 
 `;
@@ -648,13 +656,43 @@ function del(id) {
 function addToFav(id) {
     document.getElementById("rec_male").innerHTML = '';
     document.getElementsByClassName("fav_males")[0].innerHTML = '';
-    var id = id.split("-")[1];
-    var item = recipes.find(x => x.id == id);
+      var item = recipes.find(x => x.id == id);
     item.star = true;
 
 
 
     LoadAFavMalse(recipes);
+    
+}
+
+function OpenDiscrib(id) {
+  
+    var item = recipes.find(item => item.id == id);
+   
+
+    document.getElementsByClassName("content")[0].innerHTML = `
+    
+    <div class="content_item">
+    <h1>${item.name}</h1>
+    <img src="${item.imageURL}" alt="">
+    <div class="content_item_info">
+
+        <h3>Ingredients</h3>
+        <ul>
+            ${item.ingredients.map(x => `<li>${x.quantity} ${x.name}</li>`).join('')}
+        </ul>
+        <h3>Steps</h3>
+        <ol>
+            ${item.steps.map(x => `<li>${x}</li>`).join('')}
+        </ol>
+        <h3>Timers</h3>
+        <ol>
+            ${item.timers.map(x => `<li>${x}</li>`).join('')}
+        </ol>
+    </div>
+    </div>
+
+    `;
 }
 
 
